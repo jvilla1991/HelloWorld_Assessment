@@ -18,6 +18,7 @@
 <a href="/">Jump to User Registration</a>
 
 <table border="1">
+    <%--This row entitles each colum for clarity--%>
     <tr>
         <td>First Name</td>
         <td>Last Name</td>
@@ -29,6 +30,8 @@
         <td>Country</td>
         <td>Date</td>
     </tr>
+        <%--This loop parses through the arraylist that is sent from the homecontroller and populates a table--%>
+        <%--with the correct values for each entity within the registraton table--%>
     <c:forEach var="u" items="${uList}">
         <tr>
             <td>${u.firstname}</td>

@@ -59,11 +59,12 @@ Server validation found within the addUser request mapping--%>
     }
 
 
+    // This form validation covers integer-only validation for the zip code
     function validateform()
     {
         var zvalid = document.forms["uform"]["zip"].value;
 
-
+        // This loop checks each index for an alphabetical letter. If it finds one, it throws and alert error
         for (var i = 0; i < zvalid.length; i++)
         {
             if (isAlpha(zvalid[i]) == true)
@@ -73,6 +74,7 @@ Server validation found within the addUser request mapping--%>
             }
         }
 
+        // This if statement makes sure that the zip code length is either 5 or 9
         if (!((zvalid.length == 5) || (zvalid.length == 9)))
         {
             alert("Zip must be 5 or 9 in length")

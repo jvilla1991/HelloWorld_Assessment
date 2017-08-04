@@ -19,17 +19,21 @@ public class UserDAO {
     public UserDAO() {
     }
 
+    // returns all the data from mySql
     public ArrayList<RegistrationEntity> getRegistrationEntitiesByDate() {
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
         SessionFactory sessionFact = cfg.buildSessionFactory();
         Session selectUsers = sessionFact.openSession();
         selectUsers.beginTransaction();
+        // The critera of date descending is added
         Criteria u = selectUsers.createCriteria(RegistrationEntity.class).addOrder(Order.desc("date"));
         ArrayList<RegistrationEntity> userList = (ArrayList<RegistrationEntity>) u.list();
 
         return userList;
     }
 
+    // This function is called in the HomeController. It intentionally lacks validation in case the validation
+    // needs to be changed
     public RegistrationEntity addUser(@RequestParam("firstname") String firstname,
                                              @RequestParam("lastname") String lastname,
                                              @RequestParam("address1") String address1,
