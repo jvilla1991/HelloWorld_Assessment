@@ -8,10 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Welcome</title>
 </head>
+
+<h1>Welcome! Please Register</h1>
+
+<%--This tag can change depending on the violated requirement within the form
+Server validation found within the addUser request mapping--%>
+<b>${strerr}</b>
+
 <body>
 
+<%--The function validateForm will return true if all the criteria for the zip code are met--%>
 <form action="addUser" name="uform" method="get" onsubmit="return validateform()">
     First Name <input type="text" name="firstname" class="stronly" maxlength="45" required>
     <br>
@@ -38,6 +46,7 @@
 
 <script>
 
+//    This is a commonly implemented function for any validation
     function isAlpha(char){
         if ((char >= 'A' && char <= 'Z') || (char >= 'a' && char <= 'z'))
         {
@@ -53,8 +62,6 @@
     function validateform()
     {
         var zvalid = document.forms["uform"]["zip"].value;
-
-        var stronlylist = document.getElementsByClassName("stronly");
 
 
         for (var i = 0; i < zvalid.length; i++)

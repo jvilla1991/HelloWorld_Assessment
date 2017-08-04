@@ -1,6 +1,8 @@
 package com.test.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 
 /**
